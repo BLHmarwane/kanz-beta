@@ -17,3 +17,6 @@ Tu peux aussi ouvrir le téléchargement depuis le Terminal. La commande ouvre l
 La bêta utilise son propre espace de données. Essaie-la d’abord avec des montants fictifs.
 
 [Guide d’installation](https://blhmarwane.github.io/kanz-beta/installation/) · [Donner mon avis sur la bêta](https://blhmarwane.github.io/kanz-beta/avis/)
+
+La vitrine React est dans `web/`. Lance `npm ci`, puis `npm run dev` pour la modifier en local.
+`npm run build` génère `docs/`, le dossier servi par GitHub Pages.

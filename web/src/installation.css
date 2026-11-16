@@ -1,0 +1,126 @@
+.install-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.36fr) minmax(16rem, .64fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: center;
+  padding-block: clamp(3.6rem, 7.7vw, 7.4rem);
+  animation: enter .62s var(--ease) both;
+}
+
+.install-intro h1 { margin-block-start: .85rem; }
+.install-intro > div > p:not(.eyebrow) {
+  max-width: 32rem;
+  margin-block-start: 1.35rem;
+  color: var(--muted);
+  font-size: clamp(1.06rem, 1.54vw, 1.22rem);
+}
+.install-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.3rem; align-items: center; margin-block-start: 1.6rem; }
+.install-compat {
+  overflow: hidden;
+  padding: clamp(1.5rem, 3.7vw, 2.9rem);
+  border-radius: .8rem;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 90% 7%, #4841e5c2, transparent 68%),
+    radial-gradient(ellipse at 22% 100%, #141b72, transparent 66%),
+    var(--void);
+  box-shadow: 0 17px 45px #10104432;
+}
+.install-compat.grain::before { mix-blend-mode: screen; opacity: .19; }
+.install-icon { display: grid; width: 3.6rem; height: 3.6rem; place-items: center; border-radius: .5rem; color: var(--void); background: var(--citron); }
+.install-compat h2 { margin-block-start: 1rem; font-size: clamp(1.8rem, 3vw, 2.95rem); }
+.install-compat ul { display: grid; gap: .45rem; margin-block: .95rem 1.15rem; padding-inline: 0; list-style: none; }
+.install-compat li { display: flex; align-items: center; gap: .55rem; font-weight: 635; line-height: 1.35; }
+.install-compat li svg { flex: none; color: var(--citron); }
+.install-compat p { color: #e0e2f4; font-size: .87rem; line-height: 1.45; }
+
+.install-guide {
+  display: grid;
+  grid-template-columns: minmax(12rem, .54fr) minmax(0, 1.46fr);
+  align-items: start;
+  gap: 2.4rem clamp(2rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 7.5vw, 7.2rem);
+}
+.install-index { position: sticky; top: 7.4rem; }
+.install-index h2 { font-size: clamp(2.4rem, 4vw, 4.65rem); }
+.install-index nav { display: grid; justify-items: start; gap: .4rem; margin-block-start: 1.55rem; }
+.install-index nav a { padding-inline-start: .6rem; border-inline-start: 2px solid var(--line); color: var(--muted); font-size: .93rem; text-decoration: none; }
+.install-index nav a:hover { border-color: var(--blue); color: var(--blue); }
+.install-steps { display: grid; gap: 1.05rem; margin: 0; padding: 0; list-style: none; }
+.install-steps > li {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(.75rem, 2vw, 1.45rem);
+  padding: clamp(1.15rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background: var(--paper);
+  transition: border-color 220ms, box-shadow 240ms;
+}
+.install-steps > li:target { border-color: var(--blue); box-shadow: 0 0 0 3px #1f1fe626; }
+.step-number {
+  display: grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  place-items: center;
+  border: 1px solid #09112820;
+  border-radius: .35rem;
+  background: var(--citron);
+  font: .82rem/1 var(--mono);
+}
+.install-steps h3 { margin-block-start: .18rem; font-size: clamp(1.55rem, 3.3vw, 2.35rem); }
+.install-steps p { margin-block-start: .8rem; color: var(--muted); }
+.install-steps .text-link { margin-block-start: .75rem; font-size: .93rem; }
+.terminal {
+  min-width: 0;
+  margin-block-start: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  background: #eeedf2;
+  color: var(--void);
+}
+.terminal summary {
+  display: flex;
+  min-height: 2.65rem;
+  justify-content: space-between;
+  gap: .55rem;
+  align-items: center;
+  padding: .55rem .75rem;
+  font-size: .88rem;
+  font-weight: 665;
+  list-style: none;
+}
+.terminal summary::-webkit-details-marker { display: none; }
+.terminal summary svg { flex: none; transition: transform 220ms var(--ease); }
+.terminal[open] summary svg { transform: rotate(180deg); }
+.terminal-body { padding: 0 .75rem .75rem; }
+.terminal-body p { margin: .2rem 0 .6rem; font-size: .83rem; }
+.terminal pre {
+  margin: 0;
+  padding: .8rem;
+  border-radius: .35rem;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  background: var(--void);
+  color: var(--cream);
+  font: .77rem/1.55 var(--mono);
+}
+.terminal-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .8rem; margin-block-start: .6rem; color: var(--muted); font-size: .8rem; }
+.terminal-actions .button { min-height: 2.3rem; padding: .3rem .65rem; font-size: .78rem; }
+.install-help { background: #e9eafa; border-top: 1px solid #09112818; }
+.install-help-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; padding-block: clamp(1.8rem, 4.8vw, 4rem); }
+.install-help h2 { font-size: clamp(1.7rem, 3.7vw, 3.2rem); }
+
+@media (max-width: 50rem) {
+  .install-intro { grid-template-columns: 1fr; }
+  .install-compat { max-width: 31rem; }
+  .install-guide { grid-template-columns: 1fr; }
+  .install-index { position: static; }
+  .install-index h2 br { display: none; }
+  .install-index nav { grid-auto-flow: column; justify-content: start; gap: .85rem; margin-block-start: 1rem; }
+}
+@media (max-width: 27rem) {
+  .install-steps > li { grid-template-columns: minmax(0, 1fr); }
+  .step-number { width: 2.05rem; height: 2.05rem; }
+}

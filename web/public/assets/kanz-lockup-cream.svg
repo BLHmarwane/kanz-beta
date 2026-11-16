@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -50 568 210" role="img" aria-label="Kanz">
+<defs><clipPath id="cap"><rect x="0" y="10" width="320" height="90"/></clipPath><clipPath id="z"><rect x="258" y="40" width="50" height="60"/></clipPath></defs>
+<rect x="-60" y="-50" width="568" height="210" fill="#F3F1EA"/>
+<g transform="translate(0,10) scale(1.6667)"><rect x="0" y="42" width="12" height="12" fill="#1F1FE6"/><rect x="14" y="42" width="12" height="12" fill="#1F1FE6"/><rect x="14" y="28" width="12" height="12" fill="#1F1FE6"/><rect x="28" y="42" width="12" height="12" fill="#1F1FE6"/><rect x="28" y="28" width="12" height="12" fill="#1F1FE6"/><rect x="28" y="14" width="12" height="12" fill="#1F1FE6"/><rect x="28" y="0" width="12" height="12" fill="#F5161D"/><rect x="42" y="42" width="12" height="12" fill="#1F1FE6"/><rect x="42" y="28" width="12" height="12" fill="#1F1FE6"/><rect x="42" y="14" width="12" height="12" fill="#1F1FE6"/><rect x="56" y="42" width="12" height="12" fill="#1F1FE6"/><rect x="56" y="28" width="12" height="12" fill="#1F1FE6"/></g>
+<g transform="translate(140,0)"><g fill="none" stroke="#1F1FE6" stroke-width="14">
+<g clip-path="url(#cap)"><path d="M17 0 V110"/><path d="M24 55 A45 45 0 0 0 69 10"/><path d="M24 55 A45 45 0 0 1 69 100"/></g>
+<circle cx="128" cy="70" r="23"/><path d="M151 40 V100"/>
+<path d="M185 40 V100"/><path d="M185 70 A23 23 0 0 1 231 70 V100"/>
+<g clip-path="url(#z)"><path d="M250 47 H304 L262 93 H316" stroke-linejoin="miter" stroke-miterlimit="10"/></g>
+</g></g>
+</svg>
