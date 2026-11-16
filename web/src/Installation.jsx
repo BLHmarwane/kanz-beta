@@ -31,7 +31,7 @@ function Terminal({ label, command, children }) {
 
 export default function Installation({ links }) {
   return <div className="install-page">
-    <section className="install-hero mesh-cream grain" aria-labelledby="install-title">
+    <section className="install-hero" aria-labelledby="install-title">
       <div className="wrap install-intro">
         <div>
           <p className="eyebrow"><span className="accent-square" aria-hidden="true" /> Bêta gratuite pour Mac</p>

@@ -4,7 +4,6 @@
   gap: clamp(2rem, 7vw, 7rem);
   align-items: center;
   padding-block: clamp(3.6rem, 7.7vw, 7.4rem);
-  animation: enter .62s var(--ease) both;
 }
 
 .install-intro h1 { margin-block-start: .85rem; }

@@ -1,0 +1,63 @@
+.kanz-brand-logo {
+  display: block;
+  width: var(--kanz-brand-width, clamp(5.6rem, 7.9vw, 7.1rem));
+  height: auto;
+  overflow: visible;
+}
+
+.kanz-brand-logo__pixel {
+  fill: var(--kanz-brand-ink, #1f1fe6);
+  transform-box: fill-box;
+}
+
+.kanz-brand-logo__summit {
+  fill: var(--kanz-brand-summit, #f5161d);
+}
+
+.kanz-brand-logo__letters {
+  stroke: var(--kanz-brand-ink, #1f1fe6);
+}
+
+@keyframes kanz-brand-place-pixel {
+  from { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes kanz-brand-trace-letter {
+  from { stroke-dashoffset: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:focus-visible .kanz-brand-logo {
+    --kanz-brand-pixel-motion: kanz-brand-place-pixel;
+    --kanz-brand-letter-motion: kanz-brand-trace-letter;
+  }
+
+  @media (hover: hover) {
+    a:hover .kanz-brand-logo {
+      --kanz-brand-pixel-motion: kanz-brand-place-pixel;
+      --kanz-brand-letter-motion: kanz-brand-trace-letter;
+    }
+  }
+
+  .kanz-brand-logo {
+    --kanz-brand-ease: cubic-bezier(.22, .61, .36, 1);
+  }
+
+  .kanz-brand-logo__pixel {
+    animation: 200ms var(--kanz-brand-ease) both;
+    animation-name: var(--kanz-brand-pixel-motion, none);
+    animation-delay: calc(var(--kanz-logo-order) * 22ms);
+  }
+
+  .kanz-brand-logo__summit {
+    animation-duration: 280ms;
+  }
+
+  .kanz-brand-logo__letters [pathLength] {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 0;
+    animation: 300ms var(--kanz-brand-ease) both;
+    animation-name: var(--kanz-brand-letter-motion, none);
+    animation-delay: calc(260ms + var(--kanz-logo-order) * 38ms);
+  }
+}

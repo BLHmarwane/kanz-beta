@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import BrandLogo from './BrandLogo.jsx'
 import Icon from './icons.jsx'
 import Installation from './Installation.jsx'
+import Relief from './Relief.jsx'
+import { useSiteNavigation } from './navigation.jsx'
 import './site.css'
 
 const base = import.meta.env.BASE_URL
@@ -45,11 +48,11 @@ const screens = [
 function Header({ page }) {
   return <header className="site-header">
     <div className="wrap header-inner">
-      <a className="brand" href={links.home} aria-label="Kanz, accueil">
-        <img src={asset('kanz-lockup-cream.svg')} alt="" width="112" height="42" />
+      <a className="brand header-brand" href={links.home} aria-label="Kanz, accueil">
+        <BrandLogo />
       </a>
-      <nav className="nav-links" aria-label="Navigation principale">
-        <a href={links.home + '#apercu'}>L’app</a>
+      <nav className="nav-links" data-page={page} aria-label="Navigation principale">
+        <a href={links.home + '#apercu'} aria-current={page === 'home' ? 'location' : undefined}>L’app</a>
         <a href={links.install} aria-current={page === 'installation' ? 'page' : undefined}>Installation</a>
         <a href={links.feedback} aria-current={page === 'feedback' ? 'page' : undefined}>Donner un avis</a>
       </nav>
@@ -85,51 +88,38 @@ function Footer() {
   </footer>
 }
 
-function Screenshot({ screen, className, priority = false }) {
+function Screenshot({ screen }) {
   return <img
-    className={className}
     src={asset(screen.image)}
     alt={screen.alt}
     width="1120"
     height="760"
-    loading={priority ? 'eager' : 'lazy'}
-    fetchPriority={priority ? 'high' : undefined}
+    loading="lazy"
     decoding="async"
   />
 }
 
 function Hero() {
-  function pointAtScreenshot(event) {
-    if (event.pointerType !== 'mouse' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const frame = event.currentTarget.getBoundingClientRect()
-    const x = (event.clientX - frame.left) / frame.width - .5
-    const y = (event.clientY - frame.top) / frame.height - .5
-    event.currentTarget.style.setProperty('--lean-x', (y * -3).toFixed(2) + 'deg')
-    event.currentTarget.style.setProperty('--lean-y', (x * 4).toFixed(2) + 'deg')
-  }
-
-  function resetScreenshot(event) {
-    event.currentTarget.style.removeProperty('--lean-x')
-    event.currentTarget.style.removeProperty('--lean-y')
-  }
-
-  return <section className="home-hero mesh-cream grain" aria-labelledby="hero-title">
+  return <section className="home-hero" aria-labelledby="hero-title">
     <div className="wrap hero-layout">
       <div className="hero-copy">
         <p className="eyebrow"><span className="accent-square" aria-hidden="true" /> Bêta gratuite pour Mac</p>
-        <h1 id="hero-title">Sache ce qu’il<br className="hero-line" /> te <em>reste.</em></h1>
-        <p className="hero-intro">Revenus, dépenses, épargne. Kanz t’aide à voir ce que tu peux encore dépenser jusqu’à la fin du mois.</p>
+        <h1 id="hero-title">
+          <span className="hero-title-line"><span>Ton mois</span></span>{' '}
+          <span className="hero-title-line"><span>prend du</span></span>{' '}
+          <span className="hero-title-line"><span><em>relief.</em></span></span>
+        </h1>
+        <p className="hero-intro">À partir de tes revenus, de tes dépenses et de ton épargne, Kanz te montre ce qu’il te reste jusqu’à la fin du mois.</p>
         <div className="hero-actions">
           <a className="button button-primary" href={links.install}>Installer la bêta <Icon name="out" size={18} /></a>
           <a className="button button-secondary" href="#apercu">Découvrir l’app <Icon name="down" size={17} /></a>
         </div>
         <p className="hero-platform"><Icon name="laptop" size={17} /> Mac à puce Apple · macOS 14+</p>
       </div>
-      <figure className="hero-product" onPointerMove={pointAtScreenshot} onPointerLeave={resetScreenshot}>
-        <div className="hero-product-glow" />
-        <div className="hero-window"><Screenshot screen={screens[0]} priority /></div>
-        <figcaption>Kanz sur macOS <span>·</span> Données fictives</figcaption>
-      </figure>
+      <div className="hero-relief">
+        <Relief />
+        <p className="hero-relief-hint"><span className="accent-square" aria-hidden="true" /> Survole le relief pour voir évoluer le montant jour après jour.</p>
+      </div>
     </div>
   </section>
 }
@@ -214,9 +204,9 @@ function LocalSection() {
 function Home() {
   return <>
     <Hero />
-    <Preview />
     <LocalSection />
-    <section className="closing mesh-cream grain">
+    <Preview />
+    <section className="closing">
       <div className="wrap closing-layout">
         <h2>Ton mois,<br /> à portée de clic.</h2>
         <div>
@@ -229,7 +219,7 @@ function Home() {
 }
 
 function Feedback() {
-  return <section className="feedback-page mesh-cream grain" aria-labelledby="feedback-title">
+  return <section className="feedback-page" aria-labelledby="feedback-title">
     <div className="wrap feedback-layout">
       <div className="feedback-intro">
         <p className="eyebrow"><span className="accent-square" aria-hidden="true" /> Kanz Beta</p>
@@ -252,11 +242,8 @@ function Feedback() {
   </section>
 }
 
-function App({ page }) {
-  useEffect(() => {
-    const anchor = window.location.hash.slice(1)
-    if (anchor) document.getElementById(anchor)?.scrollIntoView()
-  }, [])
+function App({ initialPage }) {
+  const { page, animated } = useSiteNavigation(initialPage)
 
   useEffect(() => {
     if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -269,17 +256,20 @@ function App({ page }) {
     }, { threshold: .22 })
     document.querySelectorAll('[data-reveal]').forEach((item) => observer.observe(item))
     return () => observer.disconnect()
-  }, [])
+  }, [page])
 
   return <>
+    <div className="site-surface mesh-cream grain" aria-hidden="true" />
     <a className="skip" href="#contenu">Aller au contenu</a>
     <Header page={page} />
     <main id="contenu" tabIndex={-1}>
-      {page === 'installation' ? <Installation links={links} /> : page === 'feedback' ? <Feedback /> : <Home />}
+      <div key={page} className="page-content" data-route-enter={animated ? '' : undefined}>
+        {page === 'installation' ? <Installation links={links} /> : page === 'feedback' ? <Feedback /> : <Home />}
+      </div>
     </main>
     <Footer />
   </>
 }
 
 const root = document.getElementById('root')
-createRoot(root).render(<App page={root.dataset.page} />)
+createRoot(root).render(<App initialPage={root.dataset.page} />)
