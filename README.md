@@ -11,9 +11,9 @@ Kanz aide à suivre les revenus, les dépenses et les objectifs d’épargne du 
 Tu peux aussi ouvrir le téléchargement depuis le Terminal. La commande ouvre le navigateur.
 
 ```sh
-/usr/bin/open 'https://github.com/BLHmarwane/kanz-beta/releases/download/v0.1.0-beta.1/Kanz-Beta-0.1.0-1.zip'
+/usr/bin/open 'https://github.com/BLHmarwane/kanz-beta/releases/download/v0.1.0-beta.2/Kanz-Beta-0.1.0-2.zip'
 ```
 
 La bêta utilise son propre espace de données. Essaie-la d’abord avec des montants fictifs.
 
-[Guide d’installation](https://kanz-beta.xcr2208.chatgpt.site/installation) · [Donner mon avis sur la bêta](https://kanz-beta.xcr2208.chatgpt.site/avis)
+[Guide d’installation](https://blhmarwane.github.io/kanz-beta/installation/) · [Donner mon avis sur la bêta](https://blhmarwane.github.io/kanz-beta/avis/)

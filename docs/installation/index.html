@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f1fe6">
+  <meta name="description" content="Installer Kanz Beta sur un Mac avec puce Apple et macOS 14 ou ultérieur.">
+  <title>Installer la bêta — Kanz</title>
+  <link rel="icon" href="../assets/kanz-mark-blue.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="blue">
+    <div class="topbar wrap">
+      <a class="brand" href="../" aria-label="Kanz — Accueil">
+        <img src="../assets/kanz-lockup-blue.svg" alt="" width="112" height="42">
+      </a>
+      <nav class="navigation" aria-label="Navigation principale">
+        <a href="../installation/" aria-current="page">Installation</a>
+        <a href="../avis/">Donner un avis <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu" class="wrap detail" tabindex="-1">
+    <header class="detail-intro">
+      <p class="kicker"><span class="summit" aria-hidden="true"></span> Kanz Beta</p>
+      <h1>Installer la bêta.</h1>
+      <p>Prévois quelques minutes pour télécharger et ouvrir Kanz pour la première fois.</p>
+      <a class="button button-primary" href="https://github.com/BLHmarwane/kanz-beta/releases/download/v0.1.0-beta.2/Kanz-Beta-0.1.0-2.zip">Télécharger la bêta sur GitHub <span aria-hidden="true">↗</span></a>
+      <p class="download-fallback"><a class="text-link" href="https://github.com/BLHmarwane/kanz-beta/releases">Voir toutes les versions sur GitHub</a></p>
+    </header>
+    <div class="detail-layout">
+      <ol class="steps" role="list">
+        <li>
+          <div>
+            <h2>Télécharge le ZIP.</h2>
+            <p>Le bouton de téléchargement ouvre le ZIP dans ton navigateur. Sur la page des versions GitHub, le ZIP se trouve dans les fichiers de chaque version, sous <strong>Assets</strong>.</p>
+            <details class="terminal">
+              <summary>Lancer le téléchargement avec le Terminal</summary>
+              <p>Cette commande ouvre le lien du ZIP dans ton navigateur par défaut.</p>
+              <pre><code id="download-command">/usr/bin/open 'https://github.com/BLHmarwane/kanz-beta/releases/download/v0.1.0-beta.2/Kanz-Beta-0.1.0-2.zip'</code></pre>
+              <button type="button" class="copy-button" data-copy="download-command" hidden>Copier la commande</button>
+              <span class="copy-status" role="status"></span>
+            </details>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>Déplace l’application.</h2>
+            <p>Dans le Finder, ouvre <strong>Téléchargements</strong> et double-clique sur le ZIP. Déplace ensuite <strong>Kanz Beta.app</strong> dans <strong>Applications</strong>. Si une copie de la bêta existe déjà, choisis celle que tu veux conserver avant de continuer.</p>
+            <details class="terminal">
+              <summary>Déplacer l’app avec le Terminal</summary>
+              <p>Après extraction du ZIP, cette commande déplace l’app vers le dossier Applications de ton compte. Une copie existante est conservée.</p>
+              <pre><code id="copy-command">mkdir -p "$HOME/Applications" &amp;&amp; /bin/mv -nv "$HOME/Downloads/Kanz Beta.app" "$HOME/Applications/"</code></pre>
+              <button type="button" class="copy-button" data-copy="copy-command" hidden>Copier la commande</button>
+              <span class="copy-status" role="status"></span>
+            </details>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h2>Ouvre Kanz Beta.</h2>
+            <p>Double-clique sur <strong>Kanz Beta.app</strong>. La bêta n’est pas notarisée par Apple et macOS peut bloquer le premier lancement. Si tu as téléchargé le ZIP depuis la page GitHub de Kanz et que tu souhaites continuer, ouvre <strong>Réglages Système → Confidentialité et sécurité</strong>, descends jusqu’à <strong>Sécurité</strong> et clique sur <strong>Ouvrir quand même</strong>. Confirme ensuite l’ouverture.</p>
+            <a class="text-link" href="https://support.apple.com/fr-fr/102445">Consulter l’aide Apple <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ol>
+      <aside class="requirements-panel" aria-labelledby="compatible">
+        <span class="tiny-mark" aria-hidden="true"></span>
+        <h2 id="compatible">Ton Mac doit avoir</h2>
+        <p>Une puce Apple et macOS 14 Sonoma ou une version ultérieure.</p>
+        <p>Tu peux vérifier dans le <strong>menu Pomme → À propos de ce Mac</strong>.</p>
+        <a class="text-link" href="../avis/">Signaler un problème <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer wrap">
+    <a class="brand" href="../" aria-label="Kanz — Accueil">
+      <img src="../assets/kanz-lockup-cream.svg" alt="" width="100" height="37">
+    </a>
+    <p>Bêta de Kanz pour macOS</p>
+  </footer>
+</body>
+</html>
