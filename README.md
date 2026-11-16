@@ -6,8 +6,14 @@ Kanz aide à suivre les revenus, les dépenses et les objectifs d’épargne du 
 
 1. Ouvre la [page des versions](https://github.com/BLHmarwane/kanz-beta/releases) et télécharge le fichier `Kanz-Beta-….zip` dans la liste des fichiers de la version.
 2. Décompresse le ZIP dans Finder et ouvre `Kanz Beta.app`.
-3. Si macOS demande de vérifier l’éditeur, suis le [guide d’installation](https://kanz-beta.xcr2208.chatgpt.site/installation) pour autoriser cette app dans **Confidentialité et sécurité**.
+3. Si macOS bloque le lancement parce que l’éditeur n’a pas été vérifié, ouvre **Réglages Système → Confidentialité et sécurité**. Dans **Sécurité**, utilise **Ouvrir quand même** pour cette copie de Kanz Beta. [Aide Apple](https://support.apple.com/fr-fr/102445)
+
+Tu peux aussi ouvrir le téléchargement depuis le Terminal. La commande ouvre le navigateur.
+
+```sh
+/usr/bin/open 'https://github.com/BLHmarwane/kanz-beta/releases/download/v0.1.0-beta.1/Kanz-Beta-0.1.0-1.zip'
+```
 
 La bêta utilise son propre espace de données. Essaie-la d’abord avec des montants fictifs.
 
-[Donner mon avis sur la bêta](https://kanz-beta.xcr2208.chatgpt.site/avis)
+[Guide d’installation](https://kanz-beta.xcr2208.chatgpt.site/installation) · [Donner mon avis sur la bêta](https://kanz-beta.xcr2208.chatgpt.site/avis)
